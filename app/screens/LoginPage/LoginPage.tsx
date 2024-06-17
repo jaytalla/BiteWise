@@ -1,6 +1,8 @@
 import { View, Text, Image, StyleSheet, ImageBackground, Dimensions, TextInput, Pressable } from 'react-native'
 import React from 'react'
 import gb, { Colors } from '../../global/Style'
+import { Link, router } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 
 type Props = {}
 
@@ -10,7 +12,8 @@ const vh = height / 100;
 
 const LoginPage = (props: Props) => {
   return (
-      <View style={[gb.background]}>
+      <View style={[gb.background, {backgroundColor: 'black'}]}>
+        <StatusBar style='light'></StatusBar>
         <ImageBackground style={[gb.background, gb.opacity_5, { position: 'relative' }]} source={require('../../assets/images/bg/bg-min.png')}>
         </ImageBackground>
 
@@ -30,11 +33,13 @@ const LoginPage = (props: Props) => {
             {/* INPUTS  */}
               <TextInput  style={[gb.textDefault, gb.smallFont, { backgroundColor: 'rgba(255, 255, 255, 0.1)', marginTop: 5 * vh, textAlign: 'center' }]} placeholderTextColor={'white'} placeholder='Username'></TextInput>
               <TextInput secureTextEntry={true} style={[gb.textDefault, gb.smallFont, { backgroundColor: 'rgba(255, 255, 255, 0.1)', marginTop: 3 * vh, textAlign: 'center' }]} placeholderTextColor={'white'} placeholder='Password'></TextInput>
-              <Pressable style={[gb.btnPrimary, {marginTop: 3 * vh, alignItems: 'center', backgroundColor: Colors.green}]}>
+        <Pressable onPress={() => router.replace('/(tabs)/dashboard')} style={[gb.btnPrimary, {marginTop: 3 * vh, alignItems: 'center', backgroundColor: Colors.green}]}>
                   <Text style={[gb.h5, { color: 'white', fontWeight: 'bold', fontFamily:'BalooBhai2_700Bold' }]}>LOGIN</Text>
                 </Pressable>
               <Text style={[gb.smallFont, { marginTop: 5 * vh, color: 'white', }]}>Doesn’t have an account? 
-                  <Text style={[gb.smallFont, { color: Colors.orange, fontWeight: 'bold', fontFamily: 'BalooBhai2_700Bold' }]}> Create Account!</Text>
+                  <Link href='screens/SignupPage/CreateAccount'>
+            <Text style={[gb.smallFont, { color: Colors.orange, fontWeight: 'bold', fontFamily: 'BalooBhai2_700Bold' }]}> Create Account!</Text>
+                  </Link>
             </Text>
 
         </View>

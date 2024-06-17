@@ -64,6 +64,9 @@ const globalstyles = StyleSheet.create({
         width: '100%', height: 'auto', padding: 10, borderBottomColor: 'white', borderWidth: 2,
         borderColor: 'transparent'
     },
+    textNormal: {
+        width: '100%', height: 'auto', padding: 10,
+    },
 
     btnPrimary: {
         width: '100%', height: 'auto', 

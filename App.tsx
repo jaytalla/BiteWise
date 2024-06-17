@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import LoginPage from './screens/LoginPage/LoginPage';
 import * as Font from 'expo-font';
 import { BalooBhai2_400Regular, BalooBhai2_700Bold, useFonts } from '@expo-google-fonts/baloo-bhai-2';
 
@@ -15,7 +14,6 @@ export default function App() {
 
   return (
     <View style={{backgroundColor: 'black'}}>
-      <LoginPage></LoginPage>
     </View>
   );
 }
