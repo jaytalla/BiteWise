@@ -6,7 +6,7 @@ import {
   Pressable,
   FlatList,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { vw, vh } from "../index";
 import gb, { Colors } from "../global/Style";
 import CategoryCard from "../components/CategoryCard";
@@ -15,6 +15,8 @@ import homeImage from "../assets/icons/home.png";
 import FoodCard from "../components/FoodCard";
 import foodsImage from "../constants/foodsImage";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { UserInformations, UserProfile } from "../firebase/userGlobal/UserInfo";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type Props = {};
 
@@ -68,6 +70,24 @@ const Dashboard = (props: Props) => {
     { id: 7, name: "Fish Chuchu", icon: foodsImage.Food1 },
   ];
 
+  // const RemoveTestData = async () => {
+  //   await AsyncStorage.removeItem("userID");
+  // };
+
+  useEffect(() => {
+    // RemoveTestData();
+    GetAllSavedDataLocal();
+  }, []);
+
+  const GetAllSavedDataLocal = async () => {
+    const data = await AsyncStorage.multiGet([
+      "userID",
+      "userName",
+      "userProfile",
+    ]);
+    console.log(data);
+  };
+
   return (
     <View style={[gb.background, { backgroundColor: Colors.yellowWhite }]}>
       <View
@@ -106,6 +126,11 @@ const Dashboard = (props: Props) => {
           </View>
           {/* PROFILE PICTURE  */}
           <Image
+            // source={
+            //   UserInformations.profilePicture
+            //     ? UserInformations.profilePicture
+            //     : foodsImage.Food1
+            // }
             style={[
               gb.roundedFull,
               { width: 7 * vw, height: 7 * vw, backgroundColor: "white" },
