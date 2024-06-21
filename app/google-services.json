@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "398295259334",
+    "project_id": "bitewise-f61d7",
+    "storage_bucket": "bitewise-f61d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398295259334:android:f4eedb433300809a62dfc7",
+        "android_client_info": {
+          "package_name": "com.talla.bitewise"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkUqw0do9gn2eurocEgPf3dXgk35pJmIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
